@@ -152,7 +152,6 @@ namespace Game
 			{
 				Log.Game.Write("Init spaceship 'Destroyer'");
 				m_shipState = ShipState.MoveToTarget;
-				m_direction = -this.GameObj.Transform.Pos;
 
 				IEnumerable<Component> childComponents = this.GameObj.GetComponentsInChildren<LineRenderer>();
 				foreach (Component comp in childComponents)
@@ -174,6 +173,9 @@ namespace Game
 
 		public void OnUpdate()
 		{
+			m_direction = -this.GameObj.Transform.Pos;
+			this.GameObj.Transform.Angle = m_direction.Xy.Angle + MathF.RadAngle180;
+
 			Vector3 moveDelta = Time.TimeMult * m_direction * m_speed;
 
 			switch (m_shipState)
@@ -280,15 +282,17 @@ namespace Game
 				}
 				else
 				{
-					float alphaMult = 1 - (m_countdownToAttack / m_scanDuration);
-					byte alpha = (byte) ((int) (255 * alphaMult));
+					float fadeIn = MathF.Clamp(1 - (m_countdownToAttack / m_scanDuration), 0.0f, 1.0f);
+					byte alpha = (byte) ((int) (255 * fadeIn));
 					//VisualLog.Default.DrawText(this.GameObj.Transform.Pos.X, this.GameObj.Transform.Pos.Y, 0, String.Format("alpha: {0}, alphaMult: {1}", alpha, alphaMult));
 
 					ColorRgba startColor = m_scanColor1;
 					startColor.A = alpha;
 					ColorRgba endColor = m_scanColor2;
 					endColor.A = alpha;
-					m_scanLineRenderer.ColorEnd = startColor;
+					m_scanLineRenderer.GameObj.Transform.Angle = 0.0f;
+					m_scanLineRenderer.EndWidth = MathF.Lerp(100.0f, 30.0f, fadeIn);
+					m_scanLineRenderer.ColorStart = startColor;
 					m_scanLineRenderer.ColorEnd = endColor;
 				}
 			}
@@ -319,12 +323,12 @@ namespace Game
 		{
 			RayCastData firstHit;
 
-			VisualLog.Default.DrawPoint(this.GameObj.Transform.Pos.X, this.GameObj.Transform.Pos.Y, this.GameObj.Transform.Pos.Z).KeepAlive(1000);
+			//VisualLog.Default.DrawPoint(this.GameObj.Transform.Pos.X, this.GameObj.Transform.Pos.Y, this.GameObj.Transform.Pos.Z).KeepAlive(1000);
 
 			Vector2 raycastEnd = (this.GameObj.Transform.Pos + m_direction).Xy;
 			RigidBody.RayCast(this.GameObj.Transform.Pos.Xy, raycastEnd, arg=>{	return arg.Fraction; }, out firstHit);
 
-			VisualLog.Default.DrawConnection(this.GameObj.Transform.Pos.X, this.GameObj.Transform.Pos.Y, this.GameObj.Transform.Pos.Z, firstHit.Pos.X, firstHit.Pos.Y).KeepAlive(1000);
+			//VisualLog.Default.DrawConnection(this.GameObj.Transform.Pos.X, this.GameObj.Transform.Pos.Y, this.GameObj.Transform.Pos.Z, firstHit.Pos.X, firstHit.Pos.Y).KeepAlive(1000);
 
 			out_hitPos = firstHit.Pos;
 			if (firstHit.Body != null && firstHit.GameObj.GetComponent<Planet>() != null)

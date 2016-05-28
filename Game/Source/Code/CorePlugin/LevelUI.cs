@@ -67,14 +67,14 @@ namespace Game
 				canvas.State.ColorTint = this.mainColor.WithAlpha(0.65f + 0.35f * this.pointHightlight);
 				canvas.DrawText(
 					string.Format("{0}", MathF.RoundToInt(this.displayedPoints)),
-					130, 10, 0,
+					150, 10, 0,
 					Alignment.TopRight,
 					true);
 				canvas.State.TextFont = this.primaryFont;
 				canvas.State.ColorTint = this.mainColor.WithAlpha(0.5f);
 				canvas.DrawText(
 					"Points",
-					150, 10, 0,
+					170, 10, 0,
 					Alignment.TopLeft,
 					true);
 			}

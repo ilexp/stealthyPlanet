@@ -612,7 +612,6 @@
         <_items dataType="Array" type="Duality.Component[]" id="527652828" length="4">
           <item dataType="Struct" type="Game.LevelUI" id="3680259100">
             <active dataType="Bool">true</active>
-            <displayedPoints dataType="Float">0</displayedPoints>
             <gameobj dataType="ObjectRef">1338649462</gameobj>
             <mainColor dataType="Struct" type="Duality.Drawing.ColorRgba">
               <A dataType="Byte">255</A>
