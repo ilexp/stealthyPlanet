@@ -20,11 +20,13 @@ namespace Game
 		private SoundInstance playingMusic = null;
 
 		[DontSerialize]
-		private float gameTimer = 0.0f;
+		private int points = 0;
+		[DontSerialize]
+		private float pointTimer = 0.0f;
 
-		public float GameTimer
+		public int Points
 		{
-			get { return this.gameTimer; }
+			get { return this.points; }
 		}
 		public float EnemySpawnDelay
 		{
@@ -63,7 +65,13 @@ namespace Game
 				this.playingMusic.Looped = true;
 			}
 
-			this.gameTimer += Time.TimeMult * Time.SPFMult;
+			// Add points for each second we managed to survive
+			this.pointTimer += Time.TimeMult * Time.SPFMult;
+			if (this.pointTimer >= 1.0f)
+			{
+				this.pointTimer -= 1.0f;
+				this.points += 100;
+			}
 		}
 
 		private void SpawnEnemy()

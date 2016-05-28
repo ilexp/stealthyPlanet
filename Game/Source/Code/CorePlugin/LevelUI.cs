@@ -13,6 +13,7 @@ namespace Game
 	{
 		private ContentRef<Font> primaryFont;
 		private ColorRgba mainColor = ColorRgba.White;
+		private float displayedPoints = 0.0f;
 
 		public ContentRef<Font> PrimaryFont
 		{
@@ -45,17 +46,19 @@ namespace Game
 
 			if (levelController != null)
 			{
+				this.displayedPoints += (float)(levelController.Points - this.displayedPoints) * 0.2f * Time.TimeMult;
+
 				canvas.State.SetMaterial(new BatchInfo(DrawTechnique.Add, ColorRgba.White));
 				canvas.State.ColorTint = this.mainColor;
 				canvas.DrawText(
-					string.Format("{0}", (int)levelController.GameTimer),
-					20, 10, 0,
-					Alignment.TopLeft,
+					string.Format("{0}", MathF.RoundToInt(this.displayedPoints)),
+					130, 10, 0,
+					Alignment.TopRight,
 					true);
 				canvas.State.ColorTint = this.mainColor.WithAlpha(0.5f);
 				canvas.DrawText(
-					string.Format("Seconds", (int)levelController.GameTimer),
-					100, 10, 0,
+					"Points",
+					150, 10, 0,
 					Alignment.TopLeft,
 					true);
 			}
