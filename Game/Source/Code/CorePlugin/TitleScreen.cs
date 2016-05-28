@@ -29,7 +29,7 @@ namespace Game
 		{
 			if (context == InitContext.Activate)
 			{
-				if (this.BackgroundMusic != null)
+				if (this.BackgroundMusic != null && DualityApp.ExecContext == DualityApp.ExecutionContext.Game)
 				{
 					this.playingMusic = DualityApp.Sound.PlaySound(this.BackgroundMusic);
 					this.playingMusic.Looped = true; 
