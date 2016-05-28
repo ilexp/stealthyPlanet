@@ -243,6 +243,8 @@
           <item dataType="Struct" type="Game.Planet" id="3109312925">
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">4177079581</gameobj>
+            <m_detectionCounter dataType="Int">0</m_detectionCounter>
+            <m_maxDetectionCounter dataType="Int">3</m_maxDetectionCounter>
           </item>
         </_items>
         <_size dataType="Int">4</_size>
