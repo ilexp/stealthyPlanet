@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Duality;
+using Duality.Components;
 using Duality.Editor;
 
 namespace Game
 {
+	[RequiredComponent(typeof(Transform))]
 	public class EvilSpaceship : Component, ICmpInitializable, ICmpUpdatable
 	{
 		private Vector3 m_direction;
