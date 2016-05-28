@@ -255,7 +255,7 @@
         <body />
       </identifier>
       <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
-      <name dataType="String">SpriteRenderer</name>
+      <name dataType="String">Planet</name>
       <parent />
       <prefabLink />
     </item>
