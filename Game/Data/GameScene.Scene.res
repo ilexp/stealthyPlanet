@@ -266,8 +266,8 @@
         <_items dataType="Array" type="Duality.Component[]" id="686548048" length="4">
           <item dataType="Struct" type="Duality.Components.Transform" id="2109808092">
             <active dataType="Bool">true</active>
-            <angle dataType="Float">0.5624963</angle>
-            <angleAbs dataType="Float">0.5624963</angleAbs>
+            <angle dataType="Float">0.70527494</angle>
+            <angleAbs dataType="Float">0.70527494</angleAbs>
             <angleVel dataType="Float">0</angleVel>
             <angleVelAbs dataType="Float">0</angleVelAbs>
             <deriveAngle dataType="Bool">true</deriveAngle>
@@ -275,17 +275,17 @@
             <ignoreParent dataType="Bool">false</ignoreParent>
             <parentTransform />
             <pos dataType="Struct" type="Duality.Vector3">
-              <X dataType="Float">292</X>
-              <Y dataType="Float">-103</Y>
+              <X dataType="Float">295</X>
+              <Y dataType="Float">-74</Y>
               <Z dataType="Float">0</Z>
             </pos>
             <posAbs dataType="Struct" type="Duality.Vector3">
-              <X dataType="Float">292</X>
-              <Y dataType="Float">-103</Y>
+              <X dataType="Float">295</X>
+              <Y dataType="Float">-74</Y>
               <Z dataType="Float">0</Z>
             </posAbs>
-            <scale dataType="Float">2.3</scale>
-            <scaleAbs dataType="Float">2.3</scaleAbs>
+            <scale dataType="Float">2.340769</scale>
+            <scaleAbs dataType="Float">2.340769</scaleAbs>
             <vel dataType="Struct" type="Duality.Vector3">
               <X dataType="Float">0</X>
               <Y dataType="Float">0</Y>
@@ -299,7 +299,8 @@
           </item>
           <item dataType="Struct" type="Game.PartialCircleRenderer" id="467482284">
             <active dataType="Bool">true</active>
-            <circleStepCount dataType="Int">32</circleStepCount>
+            <angleRangeDegree dataType="Float">74.1</angleRangeDegree>
+            <circleStepCount dataType="Int">64</circleStepCount>
             <gameobj dataType="ObjectRef">4044460456</gameobj>
             <innerRadius dataType="Float">40.8</innerRadius>
             <outerRadius dataType="Float">50</outerRadius>

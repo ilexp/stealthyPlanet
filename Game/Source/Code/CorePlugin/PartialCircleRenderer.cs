@@ -14,6 +14,7 @@ namespace Game
 	{
 		private float outerRadius = 50.0f;
 		private float innerRadius = 40.0f;
+		private float angleRangeDegree = 360.0f;
 		private int circleStepCount = 32;
 
 		[DontSerialize] private RawList<VertexC1P3T2> vertices = new RawList<VertexC1P3T2>();
@@ -33,6 +34,11 @@ namespace Game
 		{
 			get { return this.circleStepCount; }
 			set { this.circleStepCount = value; }
+		}
+		public float AngleRangeDegree
+		{
+			get { return this.angleRangeDegree; }
+			set { this.angleRangeDegree = value; }
 		}
 		public override float BoundRadius
 		{
@@ -55,7 +61,7 @@ namespace Game
 			VertexC1P3T2[] vertexData = this.vertices.Data;
 			for (int i = 0; i < this.circleStepCount; i++)
 			{
-				float angle = MathF.RadAngle360 * (float)(i + 1) / (float)this.circleStepCount;
+				float angle = MathF.DegToRad(this.angleRangeDegree) * (((float)i / (float)(this.circleStepCount - 1)) - 0.5f);
 				Vector2 offsetOuter = Vector2.FromAngleLength(angle, this.outerRadius);
 				Vector2 offsetInner = Vector2.FromAngleLength(angle, this.innerRadius);
 				MathF.TransformDotVec(ref offsetOuter, ref xDot, ref yDot);
