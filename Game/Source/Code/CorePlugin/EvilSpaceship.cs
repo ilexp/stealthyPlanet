@@ -326,14 +326,13 @@ namespace Game
 
 			VisualLog.Default.DrawConnection(this.GameObj.Transform.Pos.X, this.GameObj.Transform.Pos.Y, this.GameObj.Transform.Pos.Z, firstHit.Pos.X, firstHit.Pos.Y).KeepAlive(1000);
 
+			out_hitPos = firstHit.Pos;
 			if (firstHit.Body != null && firstHit.GameObj.GetComponent<Planet>() != null)
 			{
 				// Planet was hit!
-				out_hitPos = firstHit.Pos;
                 return true;
 			}
 			// Hit something else (most likely the shield)
-			out_hitPos = new Vector2(0, 0);
 			return false;
 		}
 	}
