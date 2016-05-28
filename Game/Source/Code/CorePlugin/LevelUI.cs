@@ -13,10 +13,12 @@ namespace Game
 	{
 		private ContentRef<Font> monoFont;
 		private ContentRef<Font> primaryFont;
+		private ContentRef<Material> gameOverSplash;
 		private ColorRgba mainColor = ColorRgba.White;
 		[DontSerialize] private float displayedPoints = 0.0f;
 		[DontSerialize] private float pointHightlight = 0.0f;
 		[DontSerialize] private int lastLevelControllerPoints = 0;
+		[DontSerialize] private float gameOverVisibility = 0.0f;
 		
 		public ContentRef<Font> MonoFont
 		{
@@ -27,6 +29,11 @@ namespace Game
 		{
 			get { return this.primaryFont; }
 			set { this.primaryFont = value; }
+		}
+		public ContentRef<Material> GameOverSplash
+		{
+			get { return this.gameOverSplash; }
+			set { this.gameOverSplash = value; }
 		}
 		public ColorRgba MainColor
 		{
@@ -62,6 +69,22 @@ namespace Game
 					this.pointHightlight = 1.0f;
 				}
 
+				if (levelController.IsGameOver)
+				{
+					this.gameOverVisibility += (1.0f - this.gameOverVisibility) * 0.1f * Time.TimeMult;
+				}
+
+				// Draw the GameOver background
+				if (levelController.IsGameOver)
+				{
+					canvas.PushState();
+					canvas.State.ColorTint = ColorRgba.Black.WithAlpha(this.gameOverVisibility * 0.5f);
+					canvas.State.SetMaterial(new BatchInfo(DrawTechnique.Alpha, ColorRgba.White));
+					canvas.FillRect(0, 0, device.TargetSize.X, device.TargetSize.Y);
+					canvas.PopState();
+				}
+
+				canvas.PushState();
 				canvas.State.TextFont = this.monoFont;
 				canvas.State.SetMaterial(new BatchInfo(DrawTechnique.Add, ColorRgba.White));
 				canvas.State.ColorTint = this.mainColor.WithAlpha(0.65f + 0.35f * this.pointHightlight);
@@ -77,6 +100,21 @@ namespace Game
 					170, 10, 0,
 					Alignment.TopLeft,
 					true);
+				canvas.PopState();
+
+				// Draw the GameOver overlay
+				if (levelController.IsGameOver)
+				{
+					this.gameOverVisibility += (1.0f - this.gameOverVisibility) * 0.1f * Time.TimeMult;
+
+					Vector2 splashSize = this.gameOverSplash.Res.MainTexture.Res.Size * 0.5f;
+
+					canvas.PushState();
+					canvas.State.ColorTint = ColorRgba.White.WithAlpha(this.gameOverVisibility);
+					canvas.State.SetMaterial(this.gameOverSplash);
+					canvas.FillRect(0, device.TargetSize.Y - splashSize.Y + 1, splashSize.X, splashSize.Y);
+					canvas.PopState();
+				}
 			}
 		}
 	}

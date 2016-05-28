@@ -618,6 +618,9 @@
           <item dataType="Struct" type="Game.LevelUI" id="3680259100">
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">1338649462</gameobj>
+            <gameOverSplash dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
+              <contentPath dataType="String">Data\Sprites\gameover.Material.res</contentPath>
+            </gameOverSplash>
             <mainColor dataType="Struct" type="Duality.Drawing.ColorRgba">
               <A dataType="Byte">255</A>
               <B dataType="Byte">173</B>

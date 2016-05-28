@@ -19,10 +19,9 @@ namespace Game
 		private ContentRef<Sound> backgroundMusic = null;
 		private SoundInstance playingMusic = null;
 
-		[DontSerialize]
-		private int points = 0;
-		[DontSerialize]
-		private float pointTimer = 0.0f;
+		[DontSerialize] private bool gameOver;
+		[DontSerialize] private int points = 0;
+		[DontSerialize] private float pointTimer = 0.0f;
 
 		public int Points
 		{
@@ -48,6 +47,10 @@ namespace Game
 			get { return this.backgroundMusic; }
 			set { this.backgroundMusic = value; }
 		}
+		public bool IsGameOver
+		{
+			get { return this.gameOver; }
+		}
 
 		public void OnUpdate()
 		{
@@ -66,11 +69,24 @@ namespace Game
 			}
 
 			// Add points for each second we managed to survive
-			this.pointTimer += Time.TimeMult * Time.SPFMult;
-			if (this.pointTimer >= 1.0f)
+			if (!this.gameOver)
 			{
-				this.pointTimer -= 1.0f;
-				this.points += 100;
+				this.pointTimer += Time.TimeMult * Time.SPFMult;
+				if (this.pointTimer >= 1.0f)
+				{
+					this.pointTimer -= 1.0f;
+					this.points += 100;
+				}
+			}
+
+			// Check for the Losing Condition
+			Planet planet = this.GameObj.ParentScene.FindComponent<Planet>();
+			if (planet != null)
+			{
+				if (!this.gameOver && planet.DetectionCounter >= planet.MaxDetectionCounter)
+				{
+					this.gameOver = true;
+				}
 			}
 		}
 
