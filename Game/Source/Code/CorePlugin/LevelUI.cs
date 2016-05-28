@@ -53,7 +53,7 @@ namespace Game
 
 			if (levelController != null)
 			{
-				this.pointHightlight += (0.0f - this.pointHightlight) * 0.01f * Time.TimeMult;
+				this.pointHightlight += (0.0f - this.pointHightlight) * 0.05f * Time.TimeMult;
 				this.displayedPoints += (float)(levelController.Points - this.displayedPoints) * 0.2f * Time.TimeMult;
 
 				if (levelController.Points != this.lastLevelControllerPoints)
