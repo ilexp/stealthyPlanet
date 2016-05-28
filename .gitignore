@@ -69,3 +69,6 @@ Game/Source/Code/CorePlugin/obj/
 Game/Backup/
 Game/Source/Code/CorePlugin/bin/
 Game/Source/Code/CorePlugin/GamePlugin.core.xml
+Game/logfile.txt
+Game/perflog.txt
+Game/UserData.dat
