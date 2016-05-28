@@ -67,3 +67,5 @@ Game/WeifenLuo.WinFormsUI.Docking.pdb
 Game/DesignTimeData.dat
 Game/Source/Code/CorePlugin/obj/
 Game/Backup/
+Game/Source/Code/CorePlugin/bin/
+Game/Source/Code/CorePlugin/GamePlugin.core.xml

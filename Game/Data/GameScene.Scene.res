@@ -259,6 +259,80 @@
       <parent />
       <prefabLink />
     </item>
+    <item dataType="Struct" type="Duality.GameObject" id="4044460456">
+      <active dataType="Bool">true</active>
+      <children />
+      <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="2397228910">
+        <_items dataType="Array" type="Duality.Component[]" id="686548048" length="4">
+          <item dataType="Struct" type="Duality.Components.Transform" id="2109808092">
+            <active dataType="Bool">true</active>
+            <angle dataType="Float">0</angle>
+            <angleAbs dataType="Float">0</angleAbs>
+            <angleVel dataType="Float">0</angleVel>
+            <angleVelAbs dataType="Float">0</angleVelAbs>
+            <deriveAngle dataType="Bool">true</deriveAngle>
+            <gameobj dataType="ObjectRef">4044460456</gameobj>
+            <ignoreParent dataType="Bool">false</ignoreParent>
+            <parentTransform />
+            <pos dataType="Struct" type="Duality.Vector3">
+              <X dataType="Float">-161</X>
+              <Y dataType="Float">-213</Y>
+              <Z dataType="Float">0</Z>
+            </pos>
+            <posAbs dataType="Struct" type="Duality.Vector3">
+              <X dataType="Float">-161</X>
+              <Y dataType="Float">-213</Y>
+              <Z dataType="Float">0</Z>
+            </posAbs>
+            <scale dataType="Float">0.603692353</scale>
+            <scaleAbs dataType="Float">0.603692353</scaleAbs>
+            <vel dataType="Struct" type="Duality.Vector3">
+              <X dataType="Float">0</X>
+              <Y dataType="Float">0</Y>
+              <Z dataType="Float">0</Z>
+            </vel>
+            <velAbs dataType="Struct" type="Duality.Vector3">
+              <X dataType="Float">0</X>
+              <Y dataType="Float">0</Y>
+              <Z dataType="Float">0</Z>
+            </velAbs>
+          </item>
+          <item dataType="Struct" type="Game.PartialCircleRenderer" id="467482284">
+            <active dataType="Bool">true</active>
+            <gameobj dataType="ObjectRef">4044460456</gameobj>
+            <radius dataType="Float">150</radius>
+            <vertexCount dataType="Int">32</vertexCount>
+            <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
+          </item>
+        </_items>
+        <_size dataType="Int">2</_size>
+        <_version dataType="Int">2</_version>
+      </compList>
+      <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="662901194" surrogate="true">
+        <header />
+        <body>
+          <keys dataType="Array" type="System.Object[]" id="315728620">
+            <item dataType="ObjectRef">955471744</item>
+            <item dataType="Type" id="518223972" value="Game.PartialCircleRenderer" />
+          </keys>
+          <values dataType="Array" type="System.Object[]" id="924784950">
+            <item dataType="ObjectRef">2109808092</item>
+            <item dataType="ObjectRef">467482284</item>
+          </values>
+        </body>
+      </compMap>
+      <compTransform dataType="ObjectRef">2109808092</compTransform>
+      <identifier dataType="Struct" type="System.Guid" surrogate="true">
+        <header>
+          <data dataType="Array" type="System.Byte[]" id="4229104568">/dK9OqxcHUOjeZci1vnGSA==</data>
+        </header>
+        <body />
+      </identifier>
+      <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+      <name dataType="String">PartialCircleRenderer</name>
+      <parent />
+      <prefabLink />
+    </item>
   </serializeObj>
   <visibilityStrategy dataType="Struct" type="Duality.Components.DefaultRendererVisibilityStrategy" id="2035693768" />
 </root>
