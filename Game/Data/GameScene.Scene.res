@@ -569,9 +569,18 @@
             <backgroundMusic dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Sound]]">
               <contentPath dataType="String">Data\Audio\spacemusic.Sound.res</contentPath>
             </backgroundMusic>
-            <enemyPrefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
-              <contentPath dataType="String">Data\Prefabs\Spaceship.Prefab.res</contentPath>
-            </enemyPrefab>
+            <enemyPrefabs dataType="Struct" type="System.Collections.Generic.List`1[[Duality.ContentRef`1[[Duality.Resources.Prefab]]]]" id="3138359862">
+              <_items dataType="Array" type="Duality.ContentRef`1[[Duality.Resources.Prefab]][]" id="950529376" length="4">
+                <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                  <contentPath dataType="String">Data\Prefabs\Spaceship.Prefab.res</contentPath>
+                </item>
+                <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+                  <contentPath dataType="String">Data\Prefabs\Spaceship2.Prefab.res</contentPath>
+                </item>
+              </_items>
+              <_size dataType="Int">2</_size>
+              <_version dataType="Int">4</_version>
+            </enemyPrefabs>
             <enemySpawnDelay dataType="Float">3</enemySpawnDelay>
             <enemySpawnTimer dataType="Float">2</enemySpawnTimer>
             <gameobj dataType="ObjectRef">838202518</gameobj>

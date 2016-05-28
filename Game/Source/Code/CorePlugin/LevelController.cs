@@ -15,7 +15,7 @@ namespace Game
 		private float enemySpawnTimer = 2.0f; // Initial hardcoded 2 second delay
 		private float enemySpawnDelay = 1.0f;
 		private float spawnDist = 500.0f;
-		private ContentRef<Prefab> enemyPrefab = null;
+		private List<ContentRef<Prefab>> enemyPrefabs = new List<ContentRef<Prefab>>();
 		private ContentRef<Sound> backgroundMusic = null;
 		private SoundInstance playingMusic = null;
 
@@ -38,10 +38,10 @@ namespace Game
 			get { return this.spawnDist; }
 			set { this.spawnDist = value; }
 		}
-		public ContentRef<Prefab> EnemyPrefab
+		public List<ContentRef<Prefab>> EnemyPrefabs
 		{
-			get { return this.enemyPrefab; }
-			set { this.enemyPrefab = value; }
+			get { return this.enemyPrefabs; }
+			set { this.enemyPrefabs = value ?? new List<ContentRef<Prefab>>(); }
 		}
 		public ContentRef<Sound> BackgroundMusic
 		{
@@ -76,7 +76,9 @@ namespace Game
 
 		private void SpawnEnemy()
 		{
-			Prefab prefab = this.enemyPrefab.Res;
+			if (this.enemyPrefabs.Count == 0) return;
+
+			Prefab prefab = MathF.Rnd.OneOf(this.enemyPrefabs).Res;
 			if (prefab == null) return;
 
 			GameObject enemyObj = prefab.Instantiate();
