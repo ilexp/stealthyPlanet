@@ -49,6 +49,7 @@ namespace Game
 
 			GameObject enemyObj = prefab.Instantiate();
 			enemyObj.Transform.Pos = new Vector3(MathF.Rnd.NextVector2() * this.spawnDist, 0.0f);
+			Scene.Current.AddObject(enemyObj);
 		}
 	}
 }

@@ -540,112 +540,45 @@
       <prefabLink />
     </item>
     <item dataType="ObjectRef">3123407733</item>
-    <item dataType="Struct" type="Duality.GameObject" id="1482650743">
+    <item dataType="Struct" type="Duality.GameObject" id="838202518">
       <active dataType="Bool">true</active>
       <children />
-      <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="2196876085">
-        <_items dataType="Array" type="Duality.Component[]" id="4150838262" length="4">
-          <item dataType="Struct" type="Duality.Components.Transform" id="3842965675">
+      <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3926561472">
+        <_items dataType="Array" type="Duality.Component[]" id="1296651548" length="4">
+          <item dataType="Struct" type="Game.LevelController" id="1721097166">
             <active dataType="Bool">true</active>
-            <angle dataType="Float">0</angle>
-            <angleAbs dataType="Float">0</angleAbs>
-            <angleVel dataType="Float">0</angleVel>
-            <angleVelAbs dataType="Float">0</angleVelAbs>
-            <deriveAngle dataType="Bool">true</deriveAngle>
-            <gameobj dataType="ObjectRef">1482650743</gameobj>
-            <ignoreParent dataType="Bool">false</ignoreParent>
-            <parentTransform />
-            <pos dataType="Struct" type="Duality.Vector3">
-              <X dataType="Float">-327</X>
-              <Y dataType="Float">-160</Y>
-              <Z dataType="Float">0</Z>
-            </pos>
-            <posAbs dataType="Struct" type="Duality.Vector3">
-              <X dataType="Float">-327</X>
-              <Y dataType="Float">-160</Y>
-              <Z dataType="Float">0</Z>
-            </posAbs>
-            <scale dataType="Float">1</scale>
-            <scaleAbs dataType="Float">1</scaleAbs>
-            <vel dataType="Struct" type="Duality.Vector3">
-              <X dataType="Float">0</X>
-              <Y dataType="Float">0</Y>
-              <Z dataType="Float">0</Z>
-            </vel>
-            <velAbs dataType="Struct" type="Duality.Vector3">
-              <X dataType="Float">0</X>
-              <Y dataType="Float">0</Y>
-              <Z dataType="Float">0</Z>
-            </velAbs>
-          </item>
-          <item dataType="Struct" type="Duality.Components.Renderers.SpriteRenderer" id="3124817311">
-            <active dataType="Bool">true</active>
-            <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
-              <A dataType="Byte">255</A>
-              <B dataType="Byte">255</B>
-              <G dataType="Byte">255</G>
-              <R dataType="Byte">255</R>
-            </colorTint>
-            <customMat />
-            <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
-            <gameobj dataType="ObjectRef">1482650743</gameobj>
-            <offset dataType="Int">0</offset>
-            <pixelGrid dataType="Bool">false</pixelGrid>
-            <rect dataType="Struct" type="Duality.Rect">
-              <H dataType="Float">64</H>
-              <W dataType="Float">64</W>
-              <X dataType="Float">-32</X>
-              <Y dataType="Float">-32</Y>
-            </rect>
-            <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
-            <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-              <contentPath dataType="String">Data\Sprites\spam.Material.res</contentPath>
-            </sharedMat>
-            <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
-          </item>
-          <item dataType="Struct" type="Game.EvilSpaceship" id="1593562427">
-            <active dataType="Bool">true</active>
-            <gameobj dataType="ObjectRef">1482650743</gameobj>
-            <m_countdownToAttack dataType="Float">0</m_countdownToAttack>
-            <m_direction dataType="Struct" type="Duality.Vector3">
-              <X dataType="Float">327</X>
-              <Y dataType="Float">160</Y>
-              <Z dataType="Float">-0</Z>
-            </m_direction>
-            <m_returnDistance dataType="Float">400000</m_returnDistance>
-            <m_shipState dataType="Enum" type="Game.EvilSpaceship+ShipState" name="MoveToTarget" value="1" />
-            <m_shootingDistance dataType="Float">80000</m_shootingDistance>
-            <m_speed dataType="Float">0.01</m_speed>
-            <m_waitingTimeInSeconds dataType="Float">10</m_waitingTimeInSeconds>
+            <enemyPrefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+              <contentPath dataType="String">Data\Prefabs\Spaceship.Prefab.res</contentPath>
+            </enemyPrefab>
+            <enemySpawnDelay dataType="Float">1</enemySpawnDelay>
+            <enemySpawnTimer dataType="Float">2</enemySpawnTimer>
+            <gameobj dataType="ObjectRef">838202518</gameobj>
+            <spawnDist dataType="Float">500</spawnDist>
           </item>
         </_items>
-        <_size dataType="Int">3</_size>
-        <_version dataType="Int">3</_version>
+        <_size dataType="Int">1</_size>
+        <_version dataType="Int">1</_version>
       </compList>
-      <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="4292382792" surrogate="true">
+      <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="3903494734" surrogate="true">
         <header />
         <body>
-          <keys dataType="Array" type="System.Object[]" id="375510303">
-            <item dataType="ObjectRef">955471744</item>
-            <item dataType="ObjectRef">2878632278</item>
-            <item dataType="Type" id="1276885870" value="Game.EvilSpaceship" />
+          <keys dataType="Array" type="System.Object[]" id="1849669394">
+            <item dataType="Type" id="816925776" value="Game.LevelController" />
           </keys>
-          <values dataType="Array" type="System.Object[]" id="1746984480">
-            <item dataType="ObjectRef">3842965675</item>
-            <item dataType="ObjectRef">3124817311</item>
-            <item dataType="ObjectRef">1593562427</item>
+          <values dataType="Array" type="System.Object[]" id="2749700554">
+            <item dataType="ObjectRef">1721097166</item>
           </values>
         </body>
       </compMap>
-      <compTransform dataType="ObjectRef">3842965675</compTransform>
+      <compTransform />
       <identifier dataType="Struct" type="System.Guid" surrogate="true">
         <header>
-          <data dataType="Array" type="System.Byte[]" id="2447955853">dTe/5OD6y0OBi0YqsX9myQ==</data>
+          <data dataType="Array" type="System.Byte[]" id="1625873698">ELeW5mMBjUOBtNbVlQJVCw==</data>
         </header>
         <body />
       </identifier>
       <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
-      <name dataType="String">Spaceship</name>
+      <name dataType="String">LevelController</name>
       <parent />
       <prefabLink />
     </item>

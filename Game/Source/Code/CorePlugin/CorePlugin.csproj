@@ -60,7 +60,6 @@
     <Compile Include="CorePlugin.cs" />
     <Compile Include="LineRenderer.cs" />
     <Compile Include="LevelController.cs" />
-    <Compile Include="Player.cs" />
     <Compile Include="Planet.cs" />
     <Compile Include="PartialCircleRenderer.cs" />
     <Compile Include="EvilSpaceship.cs" />
