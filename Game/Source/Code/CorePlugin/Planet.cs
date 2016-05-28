@@ -14,6 +14,15 @@ namespace Game
 		private int m_detectionCounter = 0;
 		private int m_maxDetectionCounter = 3;
 
+		public int DetectionCounter
+		{
+			get { return this.m_detectionCounter; }
+		}
+		public int MaxDetectionCounter
+		{
+			get { return this.m_maxDetectionCounter; }
+		}
+
 		public void IncreaseDetectionCounter()
 		{
 			m_detectionCounter++;

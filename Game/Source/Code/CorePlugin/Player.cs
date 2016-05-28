@@ -45,6 +45,13 @@ namespace Game
 				Vector2 camAdjust = 400.0f * mouseRelativeToCenter / MathF.Max(mouseRelativeToCenter.Length, 400.0f);
 				this.camController.TargetFocusPos = new Vector3(camAdjust * this.cameraMovementStrength, 0.0f);
 			}
+
+			LevelController levelController = this.GameObj.ParentScene.FindComponent<LevelController>();
+			if (levelController != null && levelController.IsGameOver)
+			{
+				if (this.planetDisguise != null)
+					this.planetDisguise.Active = false;
+			}
 		}
 	}
 }

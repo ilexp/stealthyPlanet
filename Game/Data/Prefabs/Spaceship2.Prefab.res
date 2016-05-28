@@ -1,9 +1,5 @@
 ﻿<root dataType="Struct" type="Duality.Resources.Prefab" id="129723834">
-  <assetInfo dataType="Struct" type="Duality.Editor.AssetManagement.AssetInfo" id="427169525">
-    <customData />
-    <importerId />
-    <sourceFileHint />
-  </assetInfo>
+  <assetInfo />
   <objTree dataType="Struct" type="Duality.GameObject" id="1688099339">
     <active dataType="Bool">true</active>
     <children dataType="Struct" type="System.Collections.Generic.List`1[[Duality.GameObject]]" id="4064062584">
@@ -158,7 +154,7 @@
           </rect>
           <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
           <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-            <contentPath dataType="String">Data\Sprites\spaceship1.Material.res</contentPath>
+            <contentPath dataType="String">Data\Sprites\spaceship2.Material.res</contentPath>
           </sharedMat>
           <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
         </item>
@@ -171,15 +167,7 @@
             <Y dataType="Float">-0</Y>
             <Z dataType="Float">-0</Z>
           </m_direction>
-          <m_hitPosition dataType="Struct" type="Duality.Vector3">
-            <X dataType="Float">0</X>
-            <Y dataType="Float">0</Y>
-            <Z dataType="Float">0</Z>
-          </m_hitPosition>
-          <m_particlePrefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
-            <contentPath dataType="String">Data\Prefabs\PlanetParticle.Prefab.res</contentPath>
-          </m_particlePrefab>
-          <m_returnDistance dataType="Float">700000</m_returnDistance>
+          <m_returnDistance dataType="Float">400000</m_returnDistance>
           <m_scanColor1 dataType="Struct" type="Duality.Drawing.ColorRgba">
             <A dataType="Byte">255</A>
             <B dataType="Byte">0</B>
@@ -209,7 +197,6 @@
           <m_shipState dataType="Enum" type="Game.EvilSpaceship+ShipState" name="MoveToTarget" value="1" />
           <m_shootingDistance dataType="Float">80000</m_shootingDistance>
           <m_speed dataType="Float">0.01</m_speed>
-          <m_target />
           <m_waitingTimeInSeconds dataType="Float">10</m_waitingTimeInSeconds>
         </item>
       </_items>

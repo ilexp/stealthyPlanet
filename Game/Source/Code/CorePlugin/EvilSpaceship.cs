@@ -4,6 +4,7 @@ using System.Linq;
 
 using Duality;
 using Duality.Components;
+using Duality.Components.Renderers;
 using Duality.Editor;
 using Duality.Components.Physics;
 using Duality.Drawing;
@@ -42,9 +43,11 @@ namespace Game
 		private ColorRgba m_scanColor2;
 		private ColorRgba m_scanColorDetected1;
 		private ColorRgba m_scanColorDetected2;
-
 		private GameObject m_target;
 		private Vector3 m_hitPosition;
+
+		[DontSerialize]
+		private Rect initialSpriteRect = Rect.Empty;
 
 		public float ShootingDistance
 		{
@@ -194,6 +197,19 @@ namespace Game
 			this.GameObj.Transform.Angle = m_direction.Xy.Angle + MathF.RadAngle180;
 
 			Vector3 moveDelta = Time.TimeMult * m_direction * m_speed;
+
+			// Hovering animation
+			{
+				SpriteRenderer sprite = this.GameObj.GetComponent<SpriteRenderer>();
+				if (this.initialSpriteRect == Rect.Empty)
+					this.initialSpriteRect = sprite.Rect;
+				float hoverTimeOffset = (float)(this.GameObj.Id.GetHashCode() % 1000) / 1000.0f;
+				sprite.Rect = new Rect(
+					this.initialSpriteRect.X,
+					this.initialSpriteRect.Y + 10.0f * (1.0f + MathF.Sin(2.0f * (float)Time.GameTimer.TotalSeconds + hoverTimeOffset)),
+					this.initialSpriteRect.W,
+					this.initialSpriteRect.H);
+			}
 
 			switch (m_shipState)
 			{
@@ -357,12 +373,12 @@ namespace Game
 		{
 			RayCastData firstHit;
 
-			//VisualLog.Default.DrawPoint(this.GameObj.Transform.Pos.X, this.GameObj.Transform.Pos.Y, this.GameObj.Transform.Pos.Z).KeepAlive(1000);
+			//VisualLog.Default.DrawPoint(this.GameObj.Transform.Pos.X, this.GameObj.Transform.Pos.Y, this.GameObj.Transform.Pos.Z).KeepAlive(100);
 
 			Vector2 raycastEnd = (this.GameObj.Transform.Pos + m_direction).Xy;
 			RigidBody.RayCast(this.GameObj.Transform.Pos.Xy, raycastEnd, arg=>{	return arg.Fraction; }, out firstHit);
 
-			//VisualLog.Default.DrawConnection(this.GameObj.Transform.Pos.X, this.GameObj.Transform.Pos.Y, this.GameObj.Transform.Pos.Z, firstHit.Pos.X, firstHit.Pos.Y).KeepAlive(1000);
+			//VisualLog.Default.DrawConnection(this.GameObj.Transform.Pos.X, this.GameObj.Transform.Pos.Y, this.GameObj.Transform.Pos.Z, firstHit.Pos.X, firstHit.Pos.Y).KeepAlive(100);
 
 			out_hitPos = firstHit.Pos;
 			if (firstHit.Body != null && firstHit.GameObj.GetComponent<Planet>() != null)
@@ -392,7 +408,7 @@ namespace Game
 			{
 				partComp.InitParticle(this.GameObj.Transform.Pos - m_direction / 4);
 			}
-			m_countdownToAttack = 2 + MathF.Rnd.Next() % 3;
+			m_countdownToAttack = 1 + MathF.Rnd.Next() % 3;
 		}
 	}
 }
