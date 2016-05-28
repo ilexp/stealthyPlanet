@@ -244,7 +244,7 @@
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">4177079581</gameobj>
             <m_detectionCounter dataType="Int">0</m_detectionCounter>
-            <m_maxDetectionCounter dataType="Int">3</m_maxDetectionCounter>
+            <m_maxDetectionCounter dataType="Int">5</m_maxDetectionCounter>
           </item>
         </_items>
         <_size dataType="Int">4</_size>

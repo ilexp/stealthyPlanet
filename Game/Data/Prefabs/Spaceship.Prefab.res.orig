@@ -174,12 +174,20 @@
             <Y dataType="Float">-0</Y>
             <Z dataType="Float">-0</Z>
           </m_direction>
+<<<<<<< HEAD
           <m_lockAcquiredSound dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Sound]]">
             <contentPath dataType="String">Data\Audio\exit.Sound.res</contentPath>
           </m_lockAcquiredSound>
+=======
+          <m_hitPosition dataType="Struct" type="Duality.Vector3">
+            <X dataType="Float">0</X>
+            <Y dataType="Float">0</Y>
+            <Z dataType="Float">0</Z>
+          </m_hitPosition>
           <m_particlePrefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
             <contentPath dataType="String">Data\Prefabs\PlanetParticle.Prefab.res</contentPath>
           </m_particlePrefab>
+>>>>>>> 872548e7ba92893f6cf5db924f9f30fc119c9ad2
           <m_returnDistance dataType="Float">700000</m_returnDistance>
           <m_scanColor1 dataType="Struct" type="Duality.Drawing.ColorRgba">
             <A dataType="Byte">255</A>

@@ -65,8 +65,12 @@
     <Compile Include="PartialCircleRenderer.cs" />
     <Compile Include="EvilSpaceship.cs" />
     <Compile Include="CameraController.cs" />
+<<<<<<< .merge_file_a04480
+    <Compile Include="Loader.cs" />
+=======
     <Compile Include="PlanetParticle.cs" />
-    <Compile Include="Loader.cs" />    <Compile Include="Player.cs" />
+>>>>>>> .merge_file_a08816
+    <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

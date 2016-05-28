@@ -173,6 +173,9 @@
           <m_lockAcquiredSound dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Sound]]">
             <contentPath dataType="String">Data\Audio\exit.Sound.res</contentPath>
           </m_lockAcquiredSound>
+          <m_particlePrefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+            <contentPath dataType="String">Data\Prefabs\PlanetParticle.Prefab.res</contentPath>
+          </m_particlePrefab>
           <m_returnDistance dataType="Float">400000</m_returnDistance>
           <m_scanColor1 dataType="Struct" type="Duality.Drawing.ColorRgba">
             <A dataType="Byte">255</A>

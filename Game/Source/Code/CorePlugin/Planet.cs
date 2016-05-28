@@ -21,6 +21,10 @@ namespace Game
 		public int MaxDetectionCounter
 		{
 			get { return this.m_maxDetectionCounter; }
+			set
+			{
+				this.m_maxDetectionCounter = value;
+			}
 		}
 
 		public void IncreaseDetectionCounter()

@@ -46,13 +46,19 @@ namespace Game
 		private ColorRgba m_scanColorDetected1;
 		private ColorRgba m_scanColorDetected2;
 		private GameObject m_target;
+<<<<<<< .merge_file_a08948
 		private ContentRef<Sound> m_beamSound;
 		private ContentRef<Sound> m_lockAcquiredSound;
 		[DontSerialize] SoundInstance m_beamSoundInstance;
-		[DontSerialize] private Rect initialSpriteRect = Rect.Empty;
-		[DontSerialize] private Vector3 m_hitPosition;
-		
+		[DontSerialize] private Rect initialSpriteRect = Rect.Empty;		public float ShootingDistance
+=======
+		private Vector3 m_hitPosition;
+
+		[DontSerialize]
+		private Rect initialSpriteRect = Rect.Empty;
+
 		public float ShootingDistance
+>>>>>>> .merge_file_a07224
 		{
 			get
 			{
@@ -449,7 +455,7 @@ namespace Game
 			{
 				partComp.InitParticle(this.GameObj.Transform.Pos - m_direction / 4);
 			}
-			m_countdownToAttack = 0.5f + MathF.Rnd.NextFloat(0.0f, 1.0f);
+			m_countdownToAttack = 1 + MathF.Rnd.Next() % 3;
 		}
 	}
 }
