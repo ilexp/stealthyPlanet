@@ -167,6 +167,14 @@
             <Y dataType="Float">-0</Y>
             <Z dataType="Float">-0</Z>
           </m_direction>
+          <m_hitPosition dataType="Struct" type="Duality.Vector3">
+            <X dataType="Float">0</X>
+            <Y dataType="Float">0</Y>
+            <Z dataType="Float">0</Z>
+          </m_hitPosition>
+          <m_particlePrefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+            <contentPath dataType="String">Data\Prefabs\PlanetParticle.Prefab.res</contentPath>
+          </m_particlePrefab>
           <m_returnDistance dataType="Float">400000</m_returnDistance>
           <m_scanColor1 dataType="Struct" type="Duality.Drawing.ColorRgba">
             <A dataType="Byte">255</A>
@@ -197,6 +205,7 @@
           <m_shipState dataType="Enum" type="Game.EvilSpaceship+ShipState" name="MoveToTarget" value="1" />
           <m_shootingDistance dataType="Float">80000</m_shootingDistance>
           <m_speed dataType="Float">0.01</m_speed>
+          <m_target />
           <m_waitingTimeInSeconds dataType="Float">10</m_waitingTimeInSeconds>
         </item>
       </_items>
