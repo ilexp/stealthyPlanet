@@ -171,6 +171,14 @@
             <Y dataType="Float">-0</Y>
             <Z dataType="Float">-0</Z>
           </m_direction>
+          <m_hitPosition dataType="Struct" type="Duality.Vector3">
+            <X dataType="Float">0</X>
+            <Y dataType="Float">0</Y>
+            <Z dataType="Float">0</Z>
+          </m_hitPosition>
+          <m_particlePrefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
+            <contentPath dataType="String">Data\Prefabs\PlanetParticle.Prefab.res</contentPath>
+          </m_particlePrefab>
           <m_returnDistance dataType="Float">700000</m_returnDistance>
           <m_scanColor1 dataType="Struct" type="Duality.Drawing.ColorRgba">
             <A dataType="Byte">255</A>

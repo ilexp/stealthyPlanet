@@ -7,6 +7,7 @@ using Duality.Components;
 using Duality.Editor;
 using Duality.Components.Physics;
 using Duality.Drawing;
+using Duality.Resources;
 
 namespace Game
 {
@@ -35,6 +36,7 @@ namespace Game
 		private float m_scanDuration = 2;
 		private float m_returnDistance = 400000;
 		private float m_waitingTimeInSeconds = 3;
+		private ContentRef<Prefab> m_particlePrefab = null;
 
 		private ColorRgba m_scanColor1;
 		private ColorRgba m_scanColor2;
@@ -42,6 +44,7 @@ namespace Game
 		private ColorRgba m_scanColorDetected2;
 
 		private GameObject m_target;
+		private Vector3 m_hitPosition;
 
 		public float ShootingDistance
 		{
@@ -103,6 +106,18 @@ namespace Game
 				this.m_waitingTimeInSeconds = value;
 			}
 		}
+		public ContentRef<Prefab> ParticlePrefab
+		{
+			get
+			{
+				return this.m_particlePrefab;
+			}
+			set
+			{
+				this.m_particlePrefab = value;
+			}
+		}
+
 		public ColorRgba ScanColor1
 		{
 			get
@@ -190,15 +205,16 @@ namespace Game
 				}
 				break;
 			case ShipState.ScanTarget:
-				Log.Game.Write("countdownTime: {0}, lastDelta: {1}", m_countdownToAttack, Time.LastDelta);
+				//Log.Game.Write("countdownTime: {0}, lastDelta: {1}", m_countdownToAttack, Time.LastDelta);
 				m_countdownToAttack -= Time.LastDelta / 1000;
 				UpdateLineRenderer(false);
 				if (m_countdownToAttack <= 0)
 				{
-					Log.Game.Write("distance: {0}", this.GameObj.Transform.Pos.LengthSquared);
+					//Log.Game.Write("distance: {0}", this.GameObj.Transform.Pos.LengthSquared);
 					Vector2 hitPos;
 					if (ScanPlanet(out hitPos))
 					{
+						m_hitPosition = new Vector3(hitPos.X, hitPos.Y, 0);
 						StartShooting();
 					}
 					else
@@ -216,8 +232,9 @@ namespace Game
 						planetComp.IncreaseDetectionCounter();
 					}
 				}
+				SpawnParticle();
 				m_shipState = ShipState.LockPosition;
-				break;
+                break;
 			case ShipState.LeaveTarget:
 				this.GameObj.Transform.MoveBy(-moveDelta);
 				if (IsOutsideRange())
@@ -230,6 +247,14 @@ namespace Game
 				if (m_countdownToAttack <= 0)
 				{
 					StartMovingToTarget();
+				}
+				break;
+			case ShipState.LockPosition:
+				// occasionally spawn particles pulled towards the ship
+				m_countdownToAttack -= Time.LastDelta / 1000;
+				if (m_countdownToAttack <= 0)
+				{
+					SpawnParticle();
 				}
 				break;
 			default:
@@ -351,6 +376,23 @@ namespace Game
 			}
 			// Hit something else (most likely the shield)
 			return false;
+		}
+
+		void SpawnParticle()
+		{
+			Prefab prefab = this.m_particlePrefab.Res;
+			if (prefab == null)
+				return;
+
+			GameObject particleObj = prefab.Instantiate();
+			particleObj.Transform.Pos = m_hitPosition;
+			Scene.Current.AddObject(particleObj);
+			PlanetParticle partComp = particleObj.GetComponent<PlanetParticle>();
+			if (partComp != null)
+			{
+				partComp.InitParticle(this.GameObj.Transform.Pos - m_direction / 4);
+			}
+			m_countdownToAttack = 2 + MathF.Rnd.Next() % 3;
 		}
 	}
 }
