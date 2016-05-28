@@ -192,7 +192,7 @@
             <active dataType="Bool">true</active>
             <angularDamp dataType="Float">0.3</angularDamp>
             <angularVel dataType="Float">0</angularVel>
-            <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Dynamic" value="1" />
+            <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Static" value="0" />
             <colCat dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="Cat1" value="1" />
             <colFilter />
             <colWith dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="None" value="0" />
@@ -354,7 +354,7 @@
                           <active dataType="Bool">true</active>
                           <angularDamp dataType="Float">0.3</angularDamp>
                           <angularVel dataType="Float">0</angularVel>
-                          <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Dynamic" value="1" />
+                          <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Static" value="0" />
                           <colCat dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="Cat1" value="1" />
                           <colFilter />
                           <colWith dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="None" value="0" />
