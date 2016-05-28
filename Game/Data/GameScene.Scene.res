@@ -571,7 +571,7 @@
               <_size dataType="Int">2</_size>
               <_version dataType="Int">4</_version>
             </enemyPrefabs>
-            <enemySpawnDelay dataType="Float">3</enemySpawnDelay>
+            <enemySpawnDelay dataType="Float">5</enemySpawnDelay>
             <enemySpawnTimer dataType="Float">2</enemySpawnTimer>
             <gameobj dataType="ObjectRef">838202518</gameobj>
             <playingMusic />
