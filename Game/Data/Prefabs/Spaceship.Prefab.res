@@ -151,14 +151,14 @@
           <offset dataType="Int">0</offset>
           <pixelGrid dataType="Bool">false</pixelGrid>
           <rect dataType="Struct" type="Duality.Rect">
-            <H dataType="Float">64</H>
-            <W dataType="Float">64</W>
-            <X dataType="Float">-32</X>
-            <Y dataType="Float">-32</Y>
+            <H dataType="Float">98</H>
+            <W dataType="Float">85</W>
+            <X dataType="Float">-42</X>
+            <Y dataType="Float">-98</Y>
           </rect>
           <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
           <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-            <contentPath dataType="String">Data\Sprites\spam.Material.res</contentPath>
+            <contentPath dataType="String">Data\Sprites\spaceship1.Material.res</contentPath>
           </sharedMat>
           <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
         </item>

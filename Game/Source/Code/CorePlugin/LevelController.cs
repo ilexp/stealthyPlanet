@@ -19,6 +19,15 @@ namespace Game
 		private ContentRef<Sound> backgroundMusic = null;
 		private SoundInstance playingMusic = null;
 
+		[DontSerialize]
+		private int points = 0;
+		[DontSerialize]
+		private float pointTimer = 0.0f;
+
+		public int Points
+		{
+			get { return this.points; }
+		}
 		public float EnemySpawnDelay
 		{
 			get { return this.enemySpawnDelay; }
@@ -54,6 +63,14 @@ namespace Game
 			{
 				this.playingMusic = DualityApp.Sound.PlaySound(this.backgroundMusic);
 				this.playingMusic.Looped = true;
+			}
+
+			// Add points for each second we managed to survive
+			this.pointTimer += Time.TimeMult * Time.SPFMult;
+			if (this.pointTimer >= 1.0f)
+			{
+				this.pointTimer -= 1.0f;
+				this.points += 100;
 			}
 		}
 

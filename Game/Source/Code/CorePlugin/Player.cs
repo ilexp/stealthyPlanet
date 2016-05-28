@@ -42,7 +42,8 @@ namespace Game
 			}
 			if (this.camController != null)
 			{
-				this.camController.TargetFocusPos = new Vector3(mouseRelativeToCenter * this.cameraMovementStrength, 0.0f);
+				Vector2 camAdjust = 400.0f * mouseRelativeToCenter / MathF.Max(mouseRelativeToCenter.Length, 400.0f);
+				this.camController.TargetFocusPos = new Vector3(camAdjust * this.cameraMovementStrength, 0.0f);
 			}
 		}
 	}
