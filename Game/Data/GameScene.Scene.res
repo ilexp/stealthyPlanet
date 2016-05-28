@@ -129,7 +129,7 @@
       <active dataType="Bool">true</active>
       <children />
       <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3791506095">
-        <_items dataType="Array" type="Duality.Component[]" id="522079214" length="4">
+        <_items dataType="Array" type="Duality.Component[]" id="522079214">
           <item dataType="Struct" type="Duality.Components.Transform" id="2242427217">
             <active dataType="Bool">true</active>
             <angle dataType="Float">0</angle>
@@ -228,9 +228,13 @@
               <_version dataType="Int">1</_version>
             </shapes>
           </item>
+          <item dataType="Struct" type="Game.Planet" id="3109312925">
+            <active dataType="Bool">true</active>
+            <gameobj dataType="ObjectRef">4177079581</gameobj>
+          </item>
         </_items>
-        <_size dataType="Int">3</_size>
-        <_version dataType="Int">3</_version>
+        <_size dataType="Int">4</_size>
+        <_version dataType="Int">4</_version>
       </compList>
       <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="1764777120" surrogate="true">
         <header />
@@ -239,11 +243,13 @@
             <item dataType="ObjectRef">955471744</item>
             <item dataType="Type" id="2878632278" value="Duality.Components.Renderers.SpriteRenderer" />
             <item dataType="Type" id="2941124826" value="Duality.Components.Physics.RigidBody" />
+            <item dataType="Type" id="3813384566" value="Game.Planet" />
           </keys>
           <values dataType="Array" type="System.Object[]" id="685251240">
             <item dataType="ObjectRef">2242427217</item>
             <item dataType="ObjectRef">1524278853</item>
             <item dataType="ObjectRef">2944888809</item>
+            <item dataType="ObjectRef">3109312925</item>
           </values>
         </body>
       </compMap>
@@ -600,15 +606,17 @@
           <item dataType="Struct" type="Game.EvilSpaceship" id="1593562427">
             <active dataType="Bool">true</active>
             <gameobj dataType="ObjectRef">1482650743</gameobj>
+            <m_countdownToAttack dataType="Float">0</m_countdownToAttack>
             <m_direction dataType="Struct" type="Duality.Vector3">
               <X dataType="Float">327</X>
               <Y dataType="Float">160</Y>
               <Z dataType="Float">-0</Z>
             </m_direction>
+            <m_returnDistance dataType="Float">400000</m_returnDistance>
             <m_shipState dataType="Enum" type="Game.EvilSpaceship+ShipState" name="MoveToTarget" value="1" />
-            <m_shootingDistance dataType="Float">50000</m_shootingDistance>
+            <m_shootingDistance dataType="Float">80000</m_shootingDistance>
             <m_speed dataType="Float">0.01</m_speed>
-            <m_waitingDistance dataType="Float">400000</m_waitingDistance>
+            <m_waitingTimeInSeconds dataType="Float">10</m_waitingTimeInSeconds>
           </item>
         </_items>
         <_size dataType="Int">3</_size>
