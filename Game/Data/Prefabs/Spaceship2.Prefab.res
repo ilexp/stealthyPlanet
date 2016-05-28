@@ -54,12 +54,12 @@
                 <pos dataType="Struct" type="Duality.Vector3">
                   <X dataType="Float">0</X>
                   <Y dataType="Float">0</Y>
-                  <Z dataType="Float">0</Z>
+                  <Z dataType="Float">0.1</Z>
                 </pos>
                 <posAbs dataType="Struct" type="Duality.Vector3">
                   <X dataType="Float">0</X>
                   <Y dataType="Float">0</Y>
-                  <Z dataType="Float">0</Z>
+                  <Z dataType="Float">0.1</Z>
                 </posAbs>
                 <scale dataType="Float">1</scale>
                 <scaleAbs dataType="Float">1</scaleAbs>
@@ -150,7 +150,7 @@
             <H dataType="Float">98</H>
             <W dataType="Float">85</W>
             <X dataType="Float">-42</X>
-            <Y dataType="Float">-98</Y>
+            <Y dataType="Float">-90</Y>
           </rect>
           <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
           <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">

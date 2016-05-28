@@ -231,7 +231,7 @@
                     <X dataType="Float">0</X>
                     <Y dataType="Float">0</Y>
                   </position>
-                  <radius dataType="Float">128</radius>
+                  <radius dataType="Float">115</radius>
                   <restitution dataType="Float">0.3</restitution>
                   <sensor dataType="Bool">false</sensor>
                 </item>
@@ -398,25 +398,13 @@
                           <revolutions dataType="Float">0</revolutions>
                           <shapes dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Components.Physics.ShapeInfo]]" id="1700320084">
                             <_items dataType="Array" type="Duality.Components.Physics.ShapeInfo[]" id="2923199204" length="4">
-                              <item dataType="Struct" type="Duality.Components.Physics.CircleShapeInfo" id="3315677124">
-                                <density dataType="Float">1</density>
-                                <friction dataType="Float">0.3</friction>
-                                <parent dataType="ObjectRef">2812269684</parent>
-                                <position dataType="Struct" type="Duality.Vector2">
-                                  <X dataType="Float">0</X>
-                                  <Y dataType="Float">0</Y>
-                                </position>
-                                <radius dataType="Float">128</radius>
-                                <restitution dataType="Float">0.3</restitution>
-                                <sensor dataType="Bool">false</sensor>
-                              </item>
-                              <item dataType="Struct" type="Duality.Components.Physics.PolyShapeInfo" id="3800757654">
+                              <item dataType="Struct" type="Duality.Components.Physics.PolyShapeInfo" id="3315677124">
                                 <density dataType="Float">1</density>
                                 <friction dataType="Float">0.3</friction>
                                 <parent dataType="ObjectRef">2812269684</parent>
                                 <restitution dataType="Float">0.3</restitution>
                                 <sensor dataType="Bool">false</sensor>
-                                <vertices dataType="Array" type="Duality.Vector2[]" id="4280447054">
+                                <vertices dataType="Array" type="Duality.Vector2[]" id="4178742596">
                                   <item dataType="Struct" type="Duality.Vector2">
                                     <X dataType="Float">-84.1925</X>
                                     <Y dataType="Float">-203.01712</Y>
@@ -435,13 +423,13 @@
                                   </item>
                                 </vertices>
                               </item>
-                              <item dataType="Struct" type="Duality.Components.Physics.PolyShapeInfo" id="848157312">
+                              <item dataType="Struct" type="Duality.Components.Physics.PolyShapeInfo" id="3800757654">
                                 <density dataType="Float">1</density>
                                 <friction dataType="Float">0.3</friction>
                                 <parent dataType="ObjectRef">2812269684</parent>
                                 <restitution dataType="Float">0.3</restitution>
                                 <sensor dataType="Bool">false</sensor>
-                                <vertices dataType="Array" type="Duality.Vector2[]" id="3826867784">
+                                <vertices dataType="Array" type="Duality.Vector2[]" id="4280447054">
                                   <item dataType="Struct" type="Duality.Vector2">
                                     <X dataType="Float">-0.0388298035</X>
                                     <Y dataType="Float">-220.117</Y>
@@ -461,8 +449,8 @@
                                 </vertices>
                               </item>
                             </_items>
-                            <_size dataType="Int">3</_size>
-                            <_version dataType="Int">5</_version>
+                            <_size dataType="Int">2</_size>
+                            <_version dataType="Int">6</_version>
                           </shapes>
                         </item>
                       </_items>
