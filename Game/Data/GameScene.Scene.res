@@ -550,7 +550,7 @@
             <enemyPrefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
               <contentPath dataType="String">Data\Prefabs\Spaceship.Prefab.res</contentPath>
             </enemyPrefab>
-            <enemySpawnDelay dataType="Float">1</enemySpawnDelay>
+            <enemySpawnDelay dataType="Float">3</enemySpawnDelay>
             <enemySpawnTimer dataType="Float">2</enemySpawnTimer>
             <gameobj dataType="ObjectRef">838202518</gameobj>
             <spawnDist dataType="Float">500</spawnDist>
