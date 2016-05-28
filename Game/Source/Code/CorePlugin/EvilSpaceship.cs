@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Duality;
+using Duality.Editor;
 
 namespace Game
 {
 	public class EvilSpaceship : Component, ICmpInitializable, ICmpUpdatable
 	{
-		public float m_speed = 0.005f;
-		public Vector3 m_direction;
-		public float m_shootingDistance = 50000;
-		public float m_waitingDistance = 400000;
+		private Vector3 m_direction;
 
 		enum ShipState
 		{
@@ -24,7 +22,48 @@ namespace Game
 			GameOver
 		};
 
-		ShipState m_shipState = ShipState.Uninitialized;
+		private ShipState m_shipState = ShipState.Uninitialized;
+
+		private float m_speed = 0.005f;
+		private float m_shootingDistance = 50000;
+		private float m_returnDistance = 400000;
+
+		public float ShootingDistance
+		{
+			get
+			{
+				return this.m_shootingDistance;
+			}
+			set
+			{
+				this.m_shootingDistance = value;
+			}
+		}
+
+		public float ReturnDistance
+		{
+			get
+			{
+				return this.m_returnDistance;
+			}
+			set
+			{
+				this.m_returnDistance = value;
+			}
+		}
+
+		[EditorHintDecimalPlaces(4)]
+		public float Speed
+		{
+			get
+			{
+				return this.m_speed;
+			}
+			set
+			{
+				this.m_speed = value;
+			}
+		}
 
 		public void OnInit(InitContext context)
 		{
@@ -99,7 +138,7 @@ namespace Game
 		bool IsOutsideRange()
 		{
 			//Log.Game.Write("distance: {0}", this.GameObj.Transform.Pos.LengthSquared);
-			return this.GameObj.Transform.Pos.LengthSquared > m_waitingDistance;
+			return this.GameObj.Transform.Pos.LengthSquared > m_returnDistance;
 		}
 
 		// returns false if the planet is shielded
