@@ -192,7 +192,7 @@
             <active dataType="Bool">true</active>
             <angularDamp dataType="Float">0.3</angularDamp>
             <angularVel dataType="Float">0</angularVel>
-            <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Dynamic" value="1" />
+            <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Static" value="0" />
             <colCat dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="Cat1" value="1" />
             <colFilter />
             <colWith dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="None" value="0" />
@@ -354,7 +354,7 @@
                           <active dataType="Bool">true</active>
                           <angularDamp dataType="Float">0.3</angularDamp>
                           <angularVel dataType="Float">0</angularVel>
-                          <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Dynamic" value="1" />
+                          <bodyType dataType="Enum" type="Duality.Components.Physics.BodyType" name="Static" value="0" />
                           <colCat dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="Cat1" value="1" />
                           <colFilter />
                           <colWith dataType="Enum" type="Duality.Components.Physics.CollisionCategory" name="None" value="0" />
@@ -576,32 +576,11 @@
             <active dataType="Bool">true</active>
             <colorTint dataType="Struct" type="Duality.Drawing.ColorRgba">
               <A dataType="Byte">255</A>
-              <B dataType="Byte">0</B>
-              <G dataType="Byte">0</G>
-              <R dataType="Byte">245</R>
+              <B dataType="Byte">255</B>
+              <G dataType="Byte">255</G>
+              <R dataType="Byte">255</R>
             </colorTint>
-            <customMat dataType="Struct" type="Duality.Drawing.BatchInfo" id="1737202559">
-              <dirtyFlag dataType="Enum" type="Duality.Drawing.BatchInfo+DirtyFlag" name="None" value="0" />
-              <hashCode dataType="Int">-561670116</hashCode>
-              <mainColor dataType="Struct" type="Duality.Drawing.ColorRgba">
-                <A dataType="Byte">255</A>
-                <B dataType="Byte">255</B>
-                <G dataType="Byte">255</G>
-                <R dataType="Byte">255</R>
-              </mainColor>
-              <technique dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.DrawTechnique]]">
-                <contentPath dataType="String">Default:DrawTechnique:Mask</contentPath>
-              </technique>
-              <textures dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.String],[Duality.ContentRef`1[[Duality.Resources.Texture]]]]" id="3675657518" surrogate="true">
-                <header />
-                <body>
-                  <mainTex dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Texture]]">
-                    <contentPath dataType="String">Default:Texture:DualityLogoSmall</contentPath>
-                  </mainTex>
-                </body>
-              </textures>
-              <uniforms />
-            </customMat>
+            <customMat />
             <flipMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+FlipMode" name="None" value="0" />
             <gameobj dataType="ObjectRef">1482650743</gameobj>
             <offset dataType="Int">0</offset>
@@ -614,7 +593,7 @@
             </rect>
             <rectMode dataType="Enum" type="Duality.Components.Renderers.SpriteRenderer+UVMode" name="Stretch" value="0" />
             <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
-              <contentPath dataType="String">Default:Material:DualityIcon</contentPath>
+              <contentPath dataType="String">Data\Sprites\spam.Material.res</contentPath>
             </sharedMat>
             <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
           </item>
