@@ -692,6 +692,51 @@
       <parent />
       <prefabLink />
     </item>
+    <item dataType="Struct" type="Duality.GameObject" id="1338649462">
+      <active dataType="Bool">true</active>
+      <children />
+      <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="3814160096">
+        <_items dataType="Array" type="Duality.Component[]" id="527652828" length="4">
+          <item dataType="Struct" type="Game.LevelUI" id="3680259100">
+            <active dataType="Bool">true</active>
+            <gameobj dataType="ObjectRef">1338649462</gameobj>
+            <mainColor dataType="Struct" type="Duality.Drawing.ColorRgba">
+              <A dataType="Byte">255</A>
+              <B dataType="Byte">173</B>
+              <G dataType="Byte">255</G>
+              <R dataType="Byte">164</R>
+            </mainColor>
+            <primaryFont dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Font]]">
+              <contentPath dataType="String">Data\Sprites\Orbitron-Medium.Font.res</contentPath>
+            </primaryFont>
+          </item>
+        </_items>
+        <_size dataType="Int">1</_size>
+        <_version dataType="Int">1</_version>
+      </compList>
+      <compMap dataType="Struct" type="System.Collections.Generic.Dictionary`2[[System.Type],[Duality.Component]]" id="3280457614" surrogate="true">
+        <header />
+        <body>
+          <keys dataType="Array" type="System.Object[]" id="280951346">
+            <item dataType="Type" id="3255302608" value="Game.LevelUI" />
+          </keys>
+          <values dataType="Array" type="System.Object[]" id="3830771018">
+            <item dataType="ObjectRef">3680259100</item>
+          </values>
+        </body>
+      </compMap>
+      <compTransform />
+      <identifier dataType="Struct" type="System.Guid" surrogate="true">
+        <header>
+          <data dataType="Array" type="System.Byte[]" id="2250189442">3WxIu4JVcUe75aFBTQJ/2g==</data>
+        </header>
+        <body />
+      </identifier>
+      <initState dataType="Enum" type="Duality.InitState" name="Initialized" value="1" />
+      <name dataType="String">LevelUI</name>
+      <parent />
+      <prefabLink />
+    </item>
     <item dataType="ObjectRef">4044460456</item>
   </serializeObj>
   <visibilityStrategy dataType="Struct" type="Duality.Components.DefaultRendererVisibilityStrategy" id="2035693768" />

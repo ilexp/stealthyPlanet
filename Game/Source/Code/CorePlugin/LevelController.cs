@@ -19,6 +19,13 @@ namespace Game
 		private ContentRef<Sound> backgroundMusic = null;
 		private SoundInstance playingMusic = null;
 
+		[DontSerialize]
+		private float gameTimer = 0.0f;
+
+		public float GameTimer
+		{
+			get { return this.gameTimer; }
+		}
 		public float EnemySpawnDelay
 		{
 			get { return this.enemySpawnDelay; }
@@ -55,6 +62,8 @@ namespace Game
 				this.playingMusic = DualityApp.Sound.PlaySound(this.backgroundMusic);
 				this.playingMusic.Looped = true;
 			}
+
+			this.gameTimer += Time.TimeMult * Time.SPFMult;
 		}
 
 		private void SpawnEnemy()
