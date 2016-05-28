@@ -3,7 +3,7 @@
   <audioData dataType="Struct" type="System.Collections.Generic.List`1[[Duality.ContentRef`1[[Duality.Resources.AudioData]]]]" id="427169525">
     <_items dataType="Array" type="Duality.ContentRef`1[[Duality.Resources.AudioData]][]" id="1100841590">
       <item dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.AudioData]]">
-        <contentPath dataType="String">Data\Audio\spacemusic.AudioData.res</contentPath>
+        <contentPath dataType="String">Data\Audio\enter.AudioData.res</contentPath>
       </item>
     </_items>
     <_size dataType="Int">1</_size>
@@ -17,6 +17,6 @@
   <minDistFactor dataType="Float">1</minDistFactor>
   <pitchFactor dataType="Float">1</pitchFactor>
   <type dataType="Enum" type="Duality.Audio.SoundType" name="World" value="0" />
-  <volFactor dataType="Float">0.35</volFactor>
+  <volFactor dataType="Float">1</volFactor>
 </root>
 <!-- XmlFormatterBase Document Separator -->

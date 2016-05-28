@@ -161,12 +161,18 @@
         <item dataType="Struct" type="Game.EvilSpaceship" id="1799011023">
           <active dataType="Bool">true</active>
           <gameobj dataType="ObjectRef">1688099339</gameobj>
+          <m_beamSound dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Sound]]">
+            <contentPath dataType="String">Data\Audio\beamloop2.Sound.res</contentPath>
+          </m_beamSound>
           <m_countdownToAttack dataType="Float">0</m_countdownToAttack>
           <m_direction dataType="Struct" type="Duality.Vector3">
             <X dataType="Float">-0</X>
             <Y dataType="Float">-0</Y>
             <Z dataType="Float">-0</Z>
           </m_direction>
+          <m_lockAcquiredSound dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Sound]]">
+            <contentPath dataType="String">Data\Audio\exit.Sound.res</contentPath>
+          </m_lockAcquiredSound>
           <m_returnDistance dataType="Float">400000</m_returnDistance>
           <m_scanColor1 dataType="Struct" type="Duality.Drawing.ColorRgba">
             <A dataType="Byte">255</A>

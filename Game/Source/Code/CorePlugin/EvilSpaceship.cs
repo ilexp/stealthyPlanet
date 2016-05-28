@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Duality;
+using Duality.Audio;
+using Duality.Resources;
 using Duality.Components;
 using Duality.Components.Renderers;
 using Duality.Editor;
@@ -42,6 +44,9 @@ namespace Game
 		private ColorRgba m_scanColorDetected1;
 		private ColorRgba m_scanColorDetected2;
 		private GameObject m_target;
+		private ContentRef<Sound> m_beamSound;
+		private ContentRef<Sound> m_lockAcquiredSound;
+		[DontSerialize] SoundInstance m_beamSoundInstance;
 		[DontSerialize] private Rect initialSpriteRect = Rect.Empty;		public float ShootingDistance
 		{
 			get
@@ -78,7 +83,29 @@ namespace Game
 				this.m_speed = value;
 			}
 		}
-
+		
+		public ContentRef<Sound> BeamSound
+		{
+			get
+			{
+				return this.m_beamSound;
+			}
+			set
+			{
+				this.m_beamSound = value;
+			}
+		}
+		public ContentRef<Sound> LockAcquiredSound
+		{
+			get
+			{
+				return this.m_lockAcquiredSound;
+			}
+			set
+			{
+				this.m_lockAcquiredSound = value;
+			}
+		}
 		public float ScanDuration
 		{
 			get
@@ -152,7 +179,7 @@ namespace Game
 			if (context.Equals(InitContext.Activate))
 			{
 				Log.Game.Write("Init spaceship 'Destroyer'");
-				m_shipState = ShipState.MoveToTarget;
+				StartMovingToTarget();
 
 				IEnumerable<Component> childComponents = this.GameObj.GetComponentsInChildren<LineRenderer>();
 				foreach (Component comp in childComponents)
@@ -178,6 +205,7 @@ namespace Game
 			this.GameObj.Transform.Angle = m_direction.Xy.Angle + MathF.RadAngle180;
 
 			Vector3 moveDelta = Time.TimeMult * m_direction * m_speed;
+			LevelController levelController = this.GameObj.ParentScene.FindComponent<LevelController>();
 
 			// Hovering animation
 			{
@@ -203,7 +231,18 @@ namespace Game
 				break;
 			case ShipState.ScanTarget:
 				//Log.Game.Write("countdownTime: {0}, lastDelta: {1}", m_countdownToAttack, Time.LastDelta);
+				if (m_beamSoundInstance == null || m_beamSoundInstance.Disposed)
+				{
+					m_beamSoundInstance = DualityApp.Sound.PlaySound(m_beamSound);
+					m_beamSoundInstance.Looped = true;
+					m_beamSoundInstance.Pitch = MathF.Rnd.NextFloat(0.8f, 1.25f);
+				}
 				m_countdownToAttack -= Time.LastDelta / 1000;
+				if (levelController == null || levelController.IsGameOver)
+					m_beamSoundInstance.Volume = 0.1f + 0.1f * MathF.Clamp(1.0f - ((float)m_countdownToAttack / (float)m_scanDuration), 0.0f, 1.0f);
+				else
+					m_beamSoundInstance.Volume = 0.5f + 0.5f * MathF.Clamp(1.0f - ((float)m_countdownToAttack / (float)m_scanDuration), 0.0f, 1.0f);
+
 				UpdateLineRenderer(false);
 				if (m_countdownToAttack <= 0)
 				{
@@ -217,11 +256,15 @@ namespace Game
 					{
 						StartLeaving();
 					}
+					m_beamSoundInstance.FadeOut(0.1f);
 				}
 				break;
 			case ShipState.ShootTarget:
 				if (m_target != null)
 				{
+					if (levelController != null && !levelController.IsGameOver)
+						DualityApp.Sound.PlaySound(m_lockAcquiredSound);
+
 					Planet planetComp = m_target.GetComponent<Planet>();
 					if (planetComp != null)
 					{
