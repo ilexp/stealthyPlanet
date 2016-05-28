@@ -63,6 +63,7 @@
     <Compile Include="Planet.cs" />
     <Compile Include="PartialCircleRenderer.cs" />
     <Compile Include="EvilSpaceship.cs" />
+    <Compile Include="CameraController.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

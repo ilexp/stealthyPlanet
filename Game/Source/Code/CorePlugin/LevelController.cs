@@ -6,6 +6,7 @@ using Duality;
 using Duality.Drawing;
 using Duality.Components;
 using Duality.Resources;
+using Duality.Audio;
 
 namespace Game
 {
@@ -15,6 +16,8 @@ namespace Game
 		private float enemySpawnDelay = 1.0f;
 		private float spawnDist = 500.0f;
 		private ContentRef<Prefab> enemyPrefab = null;
+		private ContentRef<Sound> backgroundMusic = null;
+		private SoundInstance playingMusic = null;
 
 		public float EnemySpawnDelay
 		{
@@ -31,6 +34,11 @@ namespace Game
 			get { return this.enemyPrefab; }
 			set { this.enemyPrefab = value; }
 		}
+		public ContentRef<Sound> BackgroundMusic
+		{
+			get { return this.backgroundMusic; }
+			set { this.backgroundMusic = value; }
+		}
 
 		public void OnUpdate()
 		{
@@ -39,6 +47,13 @@ namespace Game
 			{
 				this.enemySpawnTimer += this.enemySpawnDelay * MathF.Rnd.NextFloat(0.75f, 1.0f);
 				this.SpawnEnemy();
+			}
+
+			// Make some eerie space music
+			if (this.backgroundMusic != null && this.playingMusic == null || this.playingMusic.Disposed)
+			{
+				this.playingMusic = DualityApp.Sound.PlaySound(this.backgroundMusic);
+				this.playingMusic.Looped = true;
 			}
 		}
 
