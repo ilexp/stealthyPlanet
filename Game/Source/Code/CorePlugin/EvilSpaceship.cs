@@ -6,6 +6,7 @@ using Duality;
 using Duality.Components;
 using Duality.Editor;
 using Duality.Components.Physics;
+using Duality.Drawing;
 
 namespace Game
 {
@@ -25,13 +26,20 @@ namespace Game
 			GameOver
 		};
 
+		LineRenderer m_scanLineRenderer = null;
 		private ShipState m_shipState = ShipState.Uninitialized;
 		private float m_countdownToAttack = 0;
 
 		private float m_speed = 0.005f;
 		private float m_shootingDistance = 50000;
+		private float m_scanDuration = 2;
 		private float m_returnDistance = 400000;
 		private float m_waitingTimeInSeconds = 3;
+
+		private ColorRgba m_scanColor1;
+		private ColorRgba m_scanColor2;
+		private ColorRgba m_scanColorDetected1;
+		private ColorRgba m_scanColorDetected2;
 
 		public float ShootingDistance
 		{
@@ -70,6 +78,18 @@ namespace Game
 			}
 		}
 
+		public float ScanDuration
+		{
+			get
+			{
+				return this.m_scanDuration;
+			}
+			set
+			{
+				this.m_scanDuration = value;
+			}
+		}
+
 		public float WaitingTimeInSeconds
 		{
 			get
@@ -81,6 +101,50 @@ namespace Game
 				this.m_waitingTimeInSeconds = value;
 			}
 		}
+		public ColorRgba ScanColor1
+		{
+			get
+			{
+				return this.m_scanColor1;
+			}
+			set
+			{
+				this.m_scanColor1 = value;
+			}
+		}
+		public ColorRgba ScanColor2
+		{
+			get
+			{
+				return this.m_scanColor2;
+			}
+			set
+			{
+				this.m_scanColor2 = value;
+			}
+		}
+		public ColorRgba DetectedColor1
+		{
+			get
+			{
+				return this.m_scanColorDetected1;
+			}
+			set
+			{
+				this.m_scanColorDetected1 = value;
+			}
+		}
+		public ColorRgba DetectedColor2
+		{
+			get
+			{
+				return this.m_scanColorDetected2;
+			}
+			set
+			{
+				this.m_scanColorDetected2 = value;
+			}
+		}
 
 		public void OnInit(InitContext context)
 		{
@@ -89,7 +153,17 @@ namespace Game
 				Log.Game.Write("Init spaceship 'Destroyer'");
 				m_shipState = ShipState.MoveToTarget;
 				m_direction = -this.GameObj.Transform.Pos;
-            }
+
+				IEnumerable<Component> childComponents = this.GameObj.GetComponentsInChildren<LineRenderer>();
+				foreach (Component comp in childComponents)
+				{
+					if (comp != null)
+					{
+						m_scanLineRenderer = (LineRenderer) comp;
+						break;
+					}
+				}
+			}
 		}
 
 		public void OnShutdown(ShutdownContext context)
@@ -108,22 +182,25 @@ namespace Game
 				this.GameObj.Transform.MoveBy(moveDelta);
 				if (IsInShootingRange())
 				{
-					Log.Game.Write("Switch to Shoot state");
-					m_shipState = ShipState.ScanTarget;
+					StartScanning();
 				}
 				break;
 			case ShipState.ScanTarget:
-				Log.Game.Write("distance: {0}", this.GameObj.Transform.Pos.LengthSquared);
-				if (ScanPlanet())
+				Log.Game.Write("countdownTime: {0}, lastDelta: {1}", m_countdownToAttack, Time.LastDelta);
+				m_countdownToAttack -= Time.LastDelta / 1000;
+				UpdateLineRenderer(false);
+				if (m_countdownToAttack <= 0)
 				{
-					Log.Game.Write("Switch to ShootTarget state");
-					m_shipState = ShipState.ShootTarget;
-				}
-				else
-				{
-					Log.Game.Write("Switch to LeaveTarget state");
-					ScanPlanet();
-					m_shipState = ShipState.LeaveTarget;
+					Log.Game.Write("distance: {0}", this.GameObj.Transform.Pos.LengthSquared);
+					Vector2 hitPos;
+					if (ScanPlanet(out hitPos))
+					{
+						StartShooting();
+					}
+					else
+					{
+						StartLeaving();
+					}
 				}
 				break;
 			case ShipState.ShootTarget:
@@ -134,22 +211,94 @@ namespace Game
 				this.GameObj.Transform.MoveBy(-moveDelta);
 				if (IsOutsideRange())
 				{
-					Log.Game.Write("Switch to Waiting state");
-					m_countdownToAttack = m_waitingTimeInSeconds;
-					m_shipState = ShipState.Waiting;
-                }
+					StartWaiting();
+				}
 				break;
 			case ShipState.Waiting:
-				Log.Game.Write("countdownTime: (0.f), lastDelta: (1.f)", m_countdownToAttack, Time.LastDelta);
-				m_countdownToAttack -= Time.LastDelta;
+				m_countdownToAttack -= Time.LastDelta / 1000;
 				if (m_countdownToAttack <= 0)
 				{
-					Log.Game.Write("Switch to MoveToTarget state");
-					m_shipState = ShipState.MoveToTarget;
+					StartMovingToTarget();
 				}
 				break;
 			default:
 				break;
+			}
+		}
+
+		void StartMovingToTarget()
+		{
+			Log.Game.Write("Switch to MoveToTarget state");
+			m_shipState = ShipState.MoveToTarget;
+		}
+
+		void StartScanning()
+		{
+			m_countdownToAttack = m_scanDuration;
+			m_shipState = ShipState.ScanTarget;
+			Log.Game.Write("Switch to Scan state");
+		}
+
+		void StartShooting()
+		{
+			Log.Game.Write("Switch to ShootTarget state");
+			m_shipState = ShipState.ShootTarget;
+			UpdateLineRenderer(true);
+		}
+
+		void StartLeaving()
+		{
+			Log.Game.Write("Switch to LeaveTarget state");
+			m_shipState = ShipState.LeaveTarget;
+			ResetLineRenderer();
+		}
+
+		void StartWaiting()
+		{
+			Log.Game.Write("Switch to Waiting state");
+			m_countdownToAttack = m_waitingTimeInSeconds;
+			m_shipState = ShipState.Waiting;
+		}
+
+		void SetLineRendererEndPos()
+		{
+			Vector2 hitPos;
+			ScanPlanet(out hitPos);
+			m_scanLineRenderer.EndPos = hitPos - this.GameObj.Transform.Pos.Xy;
+		}
+
+		void UpdateLineRenderer(bool in_shoot)
+		{
+			if (m_scanLineRenderer != null)
+			{
+				SetLineRendererEndPos();
+
+                if (in_shoot)
+				{
+					m_scanLineRenderer.ColorStart = m_scanColorDetected1;
+					m_scanLineRenderer.ColorEnd = m_scanColorDetected2;
+				}
+				else
+				{
+					float alphaMult = 1 - (m_countdownToAttack / m_scanDuration);
+					byte alpha = (byte) ((int) (255 * alphaMult));
+					//VisualLog.Default.DrawText(this.GameObj.Transform.Pos.X, this.GameObj.Transform.Pos.Y, 0, String.Format("alpha: {0}, alphaMult: {1}", alpha, alphaMult));
+
+					ColorRgba startColor = m_scanColor1;
+					startColor.A = alpha;
+					ColorRgba endColor = m_scanColor2;
+					endColor.A = alpha;
+					m_scanLineRenderer.ColorEnd = startColor;
+					m_scanLineRenderer.ColorEnd = endColor;
+				}
+			}
+		}
+
+		void ResetLineRenderer()
+		{
+			if (m_scanLineRenderer != null)
+			{
+				m_scanLineRenderer.ResetLineRenderer();
 			}
 		}
 
@@ -166,7 +315,7 @@ namespace Game
 		}
 
 		// returns false if the planet is shielded
-		bool ScanPlanet()
+		bool ScanPlanet(out Vector2 out_hitPos)
 		{
 			RayCastData firstHit;
 
@@ -180,10 +329,12 @@ namespace Game
 			if (firstHit.Body != null && firstHit.GameObj.GetComponent<Planet>() != null)
 			{
 				// Planet was hit!
-				return true;
+				out_hitPos = firstHit.Pos;
+                return true;
 			}
 			// Hit something else (most likely the shield)
+			out_hitPos = new Vector2(0, 0);
 			return false;
 		}
-    }
+	}
 }
