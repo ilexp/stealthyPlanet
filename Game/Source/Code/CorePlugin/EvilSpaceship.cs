@@ -213,6 +213,11 @@ namespace Game
 		public void OnShutdown(ShutdownContext context)
 		{
 			Log.Game.Write("Shutting down spaceship");
+			if (context == ShutdownContext.Deactivate)
+			{
+				if (this.m_beamSoundInstance != null)
+					this.m_beamSoundInstance.FadeOut(0.1f);
+			}
 			//throw new NotImplementedException();
 		}
 

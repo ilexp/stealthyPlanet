@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Duality;
+using Duality.Input;
 using Duality.Drawing;
 using Duality.Components;
 using Duality.Resources;
@@ -18,6 +19,7 @@ namespace Game
 		private List<ContentRef<Prefab>> enemyPrefabs = new List<ContentRef<Prefab>>();
 		private ContentRef<Sound> backgroundMusic = null;
 		private ContentRef<Sound> loseSound = null;
+		private ContentRef<Scene> titleScene = null;
 		private SoundInstance playingMusic = null;
 
 		[DontSerialize] private bool gameOver;
@@ -27,6 +29,11 @@ namespace Game
 		public int Points
 		{
 			get { return this.points; }
+		}
+		public ContentRef<Scene> TitleScene
+		{
+			get { return this.titleScene; }
+			set { this.titleScene = value; }
 		}
 		public float EnemySpawnDelay
 		{
@@ -93,6 +100,19 @@ namespace Game
 				{
 					DualityApp.Sound.PlaySound(this.loseSound);
 					this.gameOver = true;
+				}
+			}
+
+			// Go back to to the title screen if gameover
+			if (this.gameOver)
+			{
+				if (DualityApp.Mouse.ButtonHit(MouseButton.Left) ||
+					DualityApp.Keyboard.KeyHit(Key.Enter))
+				{
+					if (this.playingMusic != null)
+						this.playingMusic.FadeOut(2.0f);
+					Scene.Current.DisposeLater();
+					Scene.SwitchTo(this.titleScene);
 				}
 			}
 		}

@@ -585,6 +585,9 @@
             </loseSound>
             <playingMusic />
             <spawnDist dataType="Float">500</spawnDist>
+            <titleScene dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
+              <contentPath dataType="String">Data\StartScene.Scene.res</contentPath>
+            </titleScene>
           </item>
         </_items>
         <_size dataType="Int">1</_size>
