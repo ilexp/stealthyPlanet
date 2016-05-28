@@ -175,7 +175,7 @@
             <Z dataType="Float">-0</Z>
           </m_direction>
           <m_lockAcquiredSound dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Sound]]">
-            <contentPath dataType="String">Data\Audio\exit.Sound.res</contentPath>
+            <contentPath dataType="String">Data\Audio\lockon.Sound.res</contentPath>
           </m_lockAcquiredSound>
           <m_particlePrefab dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Prefab]]">
             <contentPath dataType="String">Data\Prefabs\PlanetParticle.Prefab.res</contentPath>

@@ -580,6 +580,9 @@
             <enemySpawnDelay dataType="Float">5</enemySpawnDelay>
             <enemySpawnTimer dataType="Float">2</enemySpawnTimer>
             <gameobj dataType="ObjectRef">838202518</gameobj>
+            <loseSound dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Sound]]">
+              <contentPath dataType="String">Data\Audio\lose.Sound.res</contentPath>
+            </loseSound>
             <playingMusic />
             <spawnDist dataType="Float">500</spawnDist>
           </item>

@@ -17,6 +17,7 @@ namespace Game
 		private float spawnDist = 500.0f;
 		private List<ContentRef<Prefab>> enemyPrefabs = new List<ContentRef<Prefab>>();
 		private ContentRef<Sound> backgroundMusic = null;
+		private ContentRef<Sound> loseSound = null;
 		private SoundInstance playingMusic = null;
 
 		[DontSerialize] private bool gameOver;
@@ -46,6 +47,11 @@ namespace Game
 		{
 			get { return this.backgroundMusic; }
 			set { this.backgroundMusic = value; }
+		}
+		public ContentRef<Sound> LoseSound
+		{
+			get { return this.loseSound; }
+			set { this.loseSound = value; }
 		}
 		public bool IsGameOver
 		{
@@ -85,6 +91,7 @@ namespace Game
 			{
 				if (!this.gameOver && planet.DetectionCounter >= planet.MaxDetectionCounter)
 				{
+					DualityApp.Sound.PlaySound(this.loseSound);
 					this.gameOver = true;
 				}
 			}
