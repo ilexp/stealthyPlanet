@@ -171,7 +171,7 @@
             <Y dataType="Float">-0</Y>
             <Z dataType="Float">-0</Z>
           </m_direction>
-          <m_returnDistance dataType="Float">400000</m_returnDistance>
+          <m_returnDistance dataType="Float">700000</m_returnDistance>
           <m_scanColor1 dataType="Struct" type="Duality.Drawing.ColorRgba">
             <A dataType="Byte">255</A>
             <B dataType="Byte">0</B>
@@ -201,6 +201,7 @@
           <m_shipState dataType="Enum" type="Game.EvilSpaceship+ShipState" name="MoveToTarget" value="1" />
           <m_shootingDistance dataType="Float">80000</m_shootingDistance>
           <m_speed dataType="Float">0.01</m_speed>
+          <m_target />
           <m_waitingTimeInSeconds dataType="Float">10</m_waitingTimeInSeconds>
         </item>
       </_items>
