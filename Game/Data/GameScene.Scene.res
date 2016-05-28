@@ -366,8 +366,13 @@
                           <angleRangeDegree dataType="Float">45</angleRangeDegree>
                           <circleStepCount dataType="Int">32</circleStepCount>
                           <gameobj dataType="ObjectRef">4044460456</gameobj>
-                          <innerRadius dataType="Float">200</innerRadius>
-                          <outerRadius dataType="Float">220</outerRadius>
+                          <innerRadius dataType="Float">190</innerRadius>
+                          <outerRadius dataType="Float">230</outerRadius>
+                          <sharedMat dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Material]]">
+                            <contentPath dataType="String">Data\Sprites\barrier.Material.res</contentPath>
+                          </sharedMat>
+                          <texHAlphaFade dataType="Float">0.09999999</texHAlphaFade>
+                          <texHOffsetAnimSpeed dataType="Float">1</texHOffsetAnimSpeed>
                           <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
                         </item>
                         <item dataType="Struct" type="Duality.Components.Physics.RigidBody" id="2812269684">
