@@ -20,8 +20,8 @@ namespace Game
 		private ContentRef<Sound> backgroundMusic = null;
 		private ContentRef<Sound> loseSound = null;
 		private ContentRef<Scene> titleScene = null;
-		private SoundInstance playingMusic = null;
 
+		[DontSerialize] private SoundInstance playingMusic = null;
 		[DontSerialize] private bool gameOver;
 		[DontSerialize] private int points = 0;
 		[DontSerialize] private float pointTimer = 0.0f;
@@ -110,7 +110,7 @@ namespace Game
 					DualityApp.Keyboard.KeyHit(Key.Enter))
 				{
 					if (this.playingMusic != null)
-						this.playingMusic.FadeOut(2.0f);
+						this.playingMusic.FadeOut(0.1f);
 					Scene.Current.DisposeLater();
 					Scene.SwitchTo(this.titleScene);
 				}

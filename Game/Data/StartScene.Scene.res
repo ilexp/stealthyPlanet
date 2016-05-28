@@ -259,6 +259,9 @@
       <compList dataType="Struct" type="System.Collections.Generic.List`1[[Duality.Component]]" id="2127945441">
         <_items dataType="Array" type="Duality.Component[]" id="387543918" length="4">
           <item dataType="Struct" type="Game.TitleScreen" id="251782295">
+            <_x003C_BackgroundMusic_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Sound]]">
+              <contentPath dataType="String">Data\Audio\spacemusic.Sound.res</contentPath>
+            </_x003C_BackgroundMusic_x003E_k__BackingField>
             <_x003C_GameScene_x003E_k__BackingField dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Scene]]">
               <contentPath dataType="String">Data\GameScene.Scene.res</contentPath>
             </_x003C_GameScene_x003E_k__BackingField>
