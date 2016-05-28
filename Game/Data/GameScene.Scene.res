@@ -612,6 +612,7 @@
         <_items dataType="Array" type="Duality.Component[]" id="527652828" length="4">
           <item dataType="Struct" type="Game.LevelUI" id="3680259100">
             <active dataType="Bool">true</active>
+            <displayedPoints dataType="Float">0</displayedPoints>
             <gameobj dataType="ObjectRef">1338649462</gameobj>
             <mainColor dataType="Struct" type="Duality.Drawing.ColorRgba">
               <A dataType="Byte">255</A>
@@ -619,6 +620,9 @@
               <G dataType="Byte">255</G>
               <R dataType="Byte">164</R>
             </mainColor>
+            <monoFont dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Font]]">
+              <contentPath dataType="String">Data\Sprites\Orbitron-Medium-Mono.Font.res</contentPath>
+            </monoFont>
             <primaryFont dataType="Struct" type="Duality.ContentRef`1[[Duality.Resources.Font]]">
               <contentPath dataType="String">Data\Sprites\Orbitron-Medium.Font.res</contentPath>
             </primaryFont>
