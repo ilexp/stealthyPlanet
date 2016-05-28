@@ -266,8 +266,8 @@
         <_items dataType="Array" type="Duality.Component[]" id="686548048" length="4">
           <item dataType="Struct" type="Duality.Components.Transform" id="2109808092">
             <active dataType="Bool">true</active>
-            <angle dataType="Float">0</angle>
-            <angleAbs dataType="Float">0</angleAbs>
+            <angle dataType="Float">0.5624963</angle>
+            <angleAbs dataType="Float">0.5624963</angleAbs>
             <angleVel dataType="Float">0</angleVel>
             <angleVelAbs dataType="Float">0</angleVelAbs>
             <deriveAngle dataType="Bool">true</deriveAngle>
@@ -275,17 +275,17 @@
             <ignoreParent dataType="Bool">false</ignoreParent>
             <parentTransform />
             <pos dataType="Struct" type="Duality.Vector3">
-              <X dataType="Float">-161</X>
-              <Y dataType="Float">-213</Y>
+              <X dataType="Float">292</X>
+              <Y dataType="Float">-103</Y>
               <Z dataType="Float">0</Z>
             </pos>
             <posAbs dataType="Struct" type="Duality.Vector3">
-              <X dataType="Float">-161</X>
-              <Y dataType="Float">-213</Y>
+              <X dataType="Float">292</X>
+              <Y dataType="Float">-103</Y>
               <Z dataType="Float">0</Z>
             </posAbs>
-            <scale dataType="Float">0.603692353</scale>
-            <scaleAbs dataType="Float">0.603692353</scaleAbs>
+            <scale dataType="Float">2.3</scale>
+            <scaleAbs dataType="Float">2.3</scaleAbs>
             <vel dataType="Struct" type="Duality.Vector3">
               <X dataType="Float">0</X>
               <Y dataType="Float">0</Y>
@@ -299,9 +299,10 @@
           </item>
           <item dataType="Struct" type="Game.PartialCircleRenderer" id="467482284">
             <active dataType="Bool">true</active>
+            <circleStepCount dataType="Int">32</circleStepCount>
             <gameobj dataType="ObjectRef">4044460456</gameobj>
-            <radius dataType="Float">150</radius>
-            <vertexCount dataType="Int">32</vertexCount>
+            <innerRadius dataType="Float">40.8</innerRadius>
+            <outerRadius dataType="Float">50</outerRadius>
             <visibilityGroup dataType="Enum" type="Duality.Drawing.VisibilityFlag" name="Group0" value="1" />
           </item>
         </_items>
