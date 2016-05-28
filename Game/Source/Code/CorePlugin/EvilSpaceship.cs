@@ -23,7 +23,7 @@ namespace Game
 			ShootTarget,
 			LeaveTarget,
 			Waiting,
-			GameOver
+			LockPosition
 		};
 
 		LineRenderer m_scanLineRenderer = null;
@@ -40,6 +40,8 @@ namespace Game
 		private ColorRgba m_scanColor2;
 		private ColorRgba m_scanColorDetected1;
 		private ColorRgba m_scanColorDetected2;
+
+		private GameObject m_target;
 
 		public float ShootingDistance
 		{
@@ -204,8 +206,15 @@ namespace Game
 				}
 				break;
 			case ShipState.ShootTarget:
-				Log.Game.Write("BOOM!!!");
-				m_shipState = ShipState.GameOver;
+				if (m_target != null)
+				{
+					Planet planetComp = m_target.GetComponent<Planet>();
+					if (planetComp != null)
+					{
+						planetComp.IncreaseDetectionCounter();
+					}
+				}
+				m_shipState = ShipState.LockPosition;
 				break;
 			case ShipState.LeaveTarget:
 				this.GameObj.Transform.MoveBy(-moveDelta);
@@ -329,6 +338,10 @@ namespace Game
 			out_hitPos = firstHit.Pos;
 			if (firstHit.Body != null && firstHit.GameObj.GetComponent<Planet>() != null)
 			{
+				if (m_target == null)
+				{
+					m_target = firstHit.Body.GameObj;
+				}
 				// Planet was hit!
                 return true;
 			}
