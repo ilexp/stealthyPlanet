@@ -55,7 +55,7 @@ namespace Game
 				canvas.State.ColorTint = this.mainColor.WithAlpha(0.5f);
 				canvas.DrawText(
 					string.Format("Seconds", (int)levelController.GameTimer),
-					80, 10, 0,
+					100, 10, 0,
 					Alignment.TopLeft,
 					true);
 			}
